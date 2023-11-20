@@ -8,9 +8,17 @@ pipeline{
       }
     }
 
-    // stage('maven build'){
-      
+    // stage('unit testing'){
+    //   steps{
+    //     bat 'mvn test'
+    //   }
     // }
+    
+    stage('Maven build') {
+      steps {
+          bat 'mvn clean install -DskipTests -Dcheckstyle.skip'
+      }
+    }
   }
   
 }
